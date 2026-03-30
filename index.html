@@ -49,7 +49,7 @@
     /* ── Name ── */
     h1 {
       font-family: 'EB Garamond', Georgia, serif;
-      font-weight: 450;
+      font-weight: 400;
       font-size: clamp(2rem, 5vw, 2.6rem);
       letter-spacing: -0.01em;
       line-height: 1.1;
@@ -96,8 +96,8 @@
       position: absolute;
       left: 0;
       color: var(--accent);
-      font-size: 2.0em;
-      line-height: 1.4;
+      font-size: 3.0em;
+      line-height: 0.25;
     }
 
     li + li { margin-top: 0.35rem; }
@@ -115,17 +115,28 @@
       text-decoration-color: var(--accent);
     }
 
-    /* ── Accent dot (decorative, like original) ── */
-    .dot {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: var(--accent);
-      margin-left: 0.5rem;
-      vertical-align: middle;
-      position: relative;
-      top: -2px;
+      /* 1. Reset the sublist padding so it indents */
+    li ul {
+      padding-left: 1.5rem;
+      margin-top: 0.25rem;
+    }
+
+    /* 2. Style the sublist dots specifically */
+    li ul li::before {
+      content: '◦'; /* A hollow circle or smaller dot for the sub-level */
+      font-size: 1.5em; /* Smaller than the parent dot */
+      line-height: 1.2; /* Adjusts vertical alignment */
+    }
+
+    /* Adds space between the main project blocks */
+    section ul > li {
+      margin-bottom: 1.5rem; 
+    }
+    
+    /* Resets the margin for the nested sub-item so it stays tight to its parent */
+    section ul > li ul li {
+      margin-bottom: 0;
+      margin-top: 0.35rem;
     }
 
     /* ── Footer ── */
@@ -163,7 +174,11 @@
     <section>
       <h2>Projects</h2>
       <ul>
-        <li><a href="https://obioraedwarduche.substack.com/">FORMA</a> : Substack on law & technology</li>
+        <li><a href="https://obioraedwarduche.substack.com/" target="_blank" rel="noopener">FORMA</a>: Substack on law & technology
+        <ul>
+        <li>Latest essay: <a href="https://obioraedwarduche.substack.com/p/the-case-for-functional-federalism" target="_blank" rel="noopener">The case for Functional Federalism in the EU</a> </li>
+        </ul>
+        </li>
         <li>louis <span style="color: var(--ink-muted); font-style: italic;">(incoming)</span></li>
       </ul>
     </section>
